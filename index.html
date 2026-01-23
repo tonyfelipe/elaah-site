@@ -1,75 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELAAH Digital</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: #fff;
-  text-align: center;
-}
-header {
-  padding: 60px 20px;
-}
-h1 {
-  font-size: 36px;
-}
-p {
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.6;
-}
-section {
-  padding: 40px 20px;
-}
-.whatsapp {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #25D366;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-}
-footer {
-  background: #000;
-  padding: 20px;
-  font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELAAH Digital — Presença digital com identidade</title>
+  <meta name="description" content="ELAAH Digital. Estúdio criativo focado em identidade, estética e presença digital." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --bg-soft:#111;
+      --text:#f2f2f2;
+      --muted:#b5b5b5;
+      --border:#1f1f1f;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    section{
+      padding:100px 6vw;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:clamp(2.5rem,5vw,4rem);
+      font-weight:500;
+      letter-spacing:-1px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:520px;
+      color:var(--muted);
+      font-size:1.1rem;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      border:1px solid var(--text);
+      font-size:0.9rem;
+      letter-spacing:1px;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      background:var(--text);
+      color:var(--bg);
+    }
+
+    /* SERVICES */
+    .services{
+      background:var(--bg-soft);
+    }
+
+    .services h2,
+    .projects h2,
+    .about h2{
+      font-size:2rem;
+      font-weight:500;
+      margin-bottom:50px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:40px;
+    }
+
+    .service h3{
+      font-size:1.1rem;
+      margin-bottom:10px;
+      font-weight:500;
+    }
+
+    .service p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .project{
+      height:260px;
+      background:#1a1a1a;
+      border:1px solid var(--border);
+      display:flex;
+      align-items:flex-end;
+      padding:20px;
+      transition:.3s;
+    }
+
+    .project:hover{
+      background:#222;
+    }
+
+    .project span{
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+
+    /* ABOUT */
+    .about p{
+      max-width:640px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* CTA */
+    .cta{
+      background:var(--bg-soft);
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:2rem;
+      font-weight:500;
+      margin-bottom:30px;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--border);
+      padding:40px 6vw;
+      font-size:0.85rem;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    footer a{
+      color:var(--muted);
+    }
+
+    @media(max-width:600px){
+      section{
+        padding:80px 6vw;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>ELAAH Digital</h1>
-  <p>Soluções criativas, tecnológicas e estratégicas para empresas, profissionais e artistas.</p>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>ELAAH Digital</h1>
+      <p>
+        Presença digital com identidade e propósito.
+        Criamos experiências digitais minimalistas, estratégicas e atemporais.
+      </p>
+      <a href="https://wa.me/SEUNUMEROAQUI" class="btn">Entrar em contato</a>
+    </div>
+  </section>
 
-<section>
-  <h2>Serviços</h2>
-  <p>
-Criação de sites e aplicativos • Sistemas SaaS • Logomarcas • Artes • Material de divulgação •
-Leads • Tráfego pago e orgânico • Parcerias comerciais • Divulgação de empresas •
-Dingos e composição musical • Divulgação artística • Consultoria estratégica •
-E-books • TCC • Artigos científicos • Apresentações profissionais •
-Contratos e análises • Projetos empresariais
-  </p>
-  <p><strong>Outros serviços? Consulte pelo WhatsApp.</strong></p>
-</section>
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <h2>O que fazemos</h2>
+      <div class="services-grid">
+        <div class="service">
+          <h3>Identidade Digital</h3>
+          <p>Posicionamento, estética e coerência visual para marcas com propósito.</p>
+        </div>
+        <div class="service">
+          <h3>Web & Experiência</h3>
+          <p>Sites institucionais e páginas digitais com foco em clareza e elegância.</p>
+        </div>
+        <div class="service">
+          <h3>Estratégia Criativa</h3>
+          <p>Direção criativa e comunicação pensada para o ambiente digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<a class="whatsapp" href="https://wa.me/551151925302" target="_blank">
-💬 WhatsApp
-</a>
+  <!-- PROJECTS -->
+  <section class="projects">
+    <div class="container">
+      <h2>Projetos</h2>
+      <div class="projects-grid">
+        <div class="project"><span>Projeto 01</span></div>
+        <div class="project"><span>Projeto 02</span></div>
+        <div class="project"><span>Projeto 03</span></div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  © 2026 ELAAH Digital — Todos os direitos reservados
-</footer>
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <h2>Sobre</h2>
+      <p>
+        A ELAAH Digital é um estúdio criativo focado em construir presença digital com identidade.
+        Unimos estética, estratégia e propósito para criar experiências sólidas e duradouras.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Vamos construir sua presença digital?</h2>
+      <a href="https://wa.me/SEUNUMEROAQUI" class="btn">Falar com a ELAAH</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 ELAAH Digital — Todos os direitos reservados</span>
+    <span>
+      <a href="#">Instagram</a> ·
+      <a href="#">WhatsApp</a>
+    </span>
+  </footer>
 
 </body>
-</html>
+</html>A 
