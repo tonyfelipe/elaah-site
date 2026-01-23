@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html logo.png="pt-BR">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELAAH Marketing Digital</title>
+  <title>ELAAH Digital</title>
 
   <style>
     :root {
       --bg: #0b0b0b;
       --bg-soft: #121212;
-      --texto: #f2f2f2;
+      --text: #f2f2f2;
       --muted: #9a9a9a;
-      --linha: #1f1f1f;
+      --line: #1f1f1f;
     }
 
     * {
@@ -23,113 +23,73 @@
 
     body {
       background: var(--bg);
-      color: var(--texto);
+      color: var(--text);
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.9);
-      border-bottom: 1px solid var(--linha);
+      background: rgba(0,0,0,0.85);
+      border-bottom: 1px solid var(--line);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       z-index: 1000;
     }
 
-    nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
     nav a {
-      color: var(--texto);
+      color: var(--text);
+      margin-left: 20px;
       text-decoration: none;
       font-size: 14px;
-      letter-spacing: 1px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     nav a:hover {
-      color: var(--muted);
+      color: #ccc;
     }
 
-    main {
-      padding-top: 100px;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 80px;
       text-align: center;
     }
 
-    .logo {
+    .hero img {
       max-width: 260px;
-      margin: 40px auto;
+      margin-bottom: 30px;
     }
 
-    h1 {
+    .hero h1 {
       font-size: 36px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
 
-    p.subtitle {
+    .hero p {
       color: var(--muted);
-      font-size: 16px;
-      margin-bottom: 60px;
+      max-width: 600px;
+      line-height: 1.6;
     }
 
     section {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 0 20px;
-      text-align: left;
-    }
-
-    section h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--linha);
-      padding-bottom: 10px;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    ul li {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--linha);
-      color: var(--texto);
+      padding: 100px 30px;
+      border-top: 1px solid var(--line);
+      text-align: center;
     }
 
     footer {
+      padding: 30px;
       text-align: center;
-      padding: 40px 20px;
+      font-size: 12px;
       color: var(--muted);
-      border-top: 1px solid var(--linha);
-    }
-
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: #000;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        gap: 15px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
+      border-top: 1px solid var(--line);
     }
   </style>
 </head>
@@ -137,6 +97,7 @@
 <body>
 
 <header>
+  <strong>ELAAH</strong>
   <nav>
     <a href="#servicos">Serviços</a>
     <a href="#sobre">Sobre</a>
@@ -145,53 +106,31 @@
 </header>
 
 <main>
-  <!-- TROQUE O NOME DO ARQUIVO DO LOGO AQUI -->
-  <img src="logo.png" alt="ELAAH Digital" class="logo">
-
-  <h1>ELAAH Digital</h1>
-  <p class="subtitle">
-    Soluções criativas, tecnológicas e estratégicas
-  </p>
+  <section class="hero">
+    <img src="logo.png" alt="ELAAH Digital">
+    <h1>Marketing Digital & Tecnologia</h1>
+    <p>Soluções criativas, estratégicas e digitais para empresas, profissionais e artistas.</p>
+  </section>
 
   <section id="servicos">
     <h2>Serviços</h2>
-    <ul>
-      <li>Criação de sites e aplicativos</li>
-      <li>Sistemas SaaS</li>
-      <li>Logomarcas e identidade visual</li>
-      <li>Tráfego pago e orgânico</li>
-      <li>Divulgação artística e empresarial</li>
-      <li>Consultoria estratégica</li>
-      <li>E-books, TCC e artigos científicos</li>
-      <li>Contratos e análises</li>
-    </ul>
+    <p>Sites • Sistemas • Branding • Tráfego • Conteúdo • Consultoria</p>
   </section>
 
   <section id="sobre">
     <h2>Sobre</h2>
-    <p>
-      A ELAAH Digital atua unindo criatividade, tecnologia e estratégia
-      para empresas, profissionais e artistas que buscam posicionamento
-      sólido e crescimento real.
-    </p>
+    <p>A ELAAH Digital une tecnologia, criatividade e estratégia.</p>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>
-      Atendimento direto via WhatsApp.<br>
-      Aberto 24 horas.
-    </p>
+    <p>Atendimento via WhatsApp</p>
   </section>
 </main>
 
 <footer>
   © 2026 ELAAH Digital — Todos os direitos reservados
 </footer>
-
-<a class="whatsapp" href="https://wa.me/551151925302" target="_blank">
-  WhatsApp
-</a>
 
 </body>
 </html>
