@@ -58,6 +58,9 @@
     }).then(function() {
       document.getElementById('msg').innerText = 'Recebido! Boa sorte 🍀';
       document.getElementById('leadForm').reset();
+      setTimeout(function() {
+        window.location.href = "https://elaah.digital";
+      }, 1500);
     }).catch(function() {
       document.getElementById('msg').innerText = 'Erro ao enviar, tente novamente.';
     });
