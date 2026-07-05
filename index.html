@@ -141,22 +141,47 @@
 <script>
 (function() {
   var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxipCW1mcSjH0euxG1A0LV_W3SOVH76uyMwrKp27IW_8WwDvSW92VD0-MRU3Qi0p0UXwA/exec";
+
+  function getSessionId() {
+    var sid = localStorage.getItem('tracking_session_id');
+    if (!sid) {
+      sid = 'sid_' + Date.now() + '_' + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem('tracking_session_id', sid);
+    }
+    return sid;
+  }
+
+  var sessionId = getSessionId();
   var params = new URLSearchParams(window.location.search);
 
-  var url = SCRIPT_URL
-    + "?id=" + Date.now()
-    + "&event=page_view"
-    + "&url=" + encodeURIComponent(window.location.href)
-    + "&referer=" + encodeURIComponent(document.referrer || "Direto")
-    + "&ua=" + encodeURIComponent(navigator.userAgent)
-    + "&utm_source=" + encodeURIComponent(params.get('utm_source') || 'N/A')
-    + "&utm_medium=" + encodeURIComponent(params.get('utm_medium') || 'N/A')
-    + "&utm_campaign=" + encodeURIComponent(params.get('utm_campaign') || 'N/A')
-    + "&utm_term=" + encodeURIComponent(params.get('utm_term') || 'N/A')
-    + "&utm_content=" + encodeURIComponent(params.get('utm_content') || 'N/A');
+  function enviarEvento(geo) {
+    var url = SCRIPT_URL
+      + "?id=" + Date.now()
+      + "&session_id=" + encodeURIComponent(sessionId)
+      + "&event=page_view"
+      + "&url=" + encodeURIComponent(window.location.href)
+      + "&referer=" + encodeURIComponent(document.referrer || "Direto")
+      + "&ua=" + encodeURIComponent(navigator.userAgent)
+      + "&utm_source=" + encodeURIComponent(params.get('utm_source') || 'N/A')
+      + "&utm_medium=" + encodeURIComponent(params.get('utm_medium') || 'N/A')
+      + "&utm_campaign=" + encodeURIComponent(params.get('utm_campaign') || 'N/A')
+      + "&utm_term=" + encodeURIComponent(params.get('utm_term') || 'N/A')
+      + "&utm_content=" + encodeURIComponent(params.get('utm_content') || 'N/A')
+      + "&geo=" + encodeURIComponent(geo || 'N/A');
 
-  var img = new Image();
-  img.src = url;
+    var img = new Image();
+    img.src = url;
+  }
+
+  fetch('https://ipapi.co/json/')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      var geo = (data.city || 'N/A') + ', ' + (data.region || 'N/A') + ', ' + (data.country_name || 'N/A');
+      enviarEvento(geo);
+    })
+    .catch(function() {
+      enviarEvento('N/A');
+    });
 })();
 </script>
 
