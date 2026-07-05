@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concorra Agora</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 420px; margin: 40px auto; padding: 0 20px; }
+  h1 { font-size: 22px; }
+  input { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 6px; }
+  button { width: 100%; padding: 14px; background: #4a86e8; color: #fff; border: none; border-radius: 6px; font-size: 16px; margin-top: 10px; }
+  #msg { margin-top: 15px; text-align: center; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Concorra a [PRÊMIO AQUI] 🎁</h1>
+<p>Preencha seus dados para participar:</p>
+
+<form id="leadForm">
+  <input type="text" id="nome" placeholder="Nome completo" required>
+  <input type="tel" id="telefone" placeholder="Telefone / WhatsApp" required>
+  <input type="email" id="email" placeholder="E-mail" required>
+  <input type="text" id="cidade" placeholder="Cidade" required>
+  <button type="submit">Quero Participar</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxipCW1mcSjH0euxG1A0LV_W3SOVH76uyMwrKp27IW_8WwDvSW92VD0-MRU3Qi0p0UXwA/exec";
+
+  function getSessionId() {
+    var sid = localStorage.getItem('tracking_session_id');
+    if (!sid) {
+      sid = 'sid_' + Date.now() + '_' + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem('tracking_session_id', sid);
+    }
+    return sid;
+  }
+
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var dados = new URLSearchParams();
+    dados.append('session_id', getSessionId());
+    dados.append('nome', document.getElementById('nome').value);
+    dados.append('telefone', document.getElementById('telefone').value);
+    dados.append('email', document.getElementById('email').value);
+    dados.append('cidade', document.getElementById('cidade').value);
+    dados.append('isca', 'Concorra Agora - [NOME DA PROMOÇÃO]');
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: dados.toString()
+    }).then(function() {
+      document.getElementById('msg').innerText = 'Recebido! Boa sorte 🍀';
+      document.getElementById('leadForm').reset();
+    }).catch(function() {
+      document.getElementById('msg').innerText = 'Erro ao enviar, tente novamente.';
+    });
+  });
+</script>
+
+</body>
+</html>
